@@ -1,0 +1,65 @@
+body {
+    background-image: url(https://img.freepik.com/vetores-gratis/fundo-de-estilo-de-quadrinhos-de-design-plano_23-2148802688.jpg?w=2000);
+    background-size: 100%;
+}
+.r1 {
+    margin-top:-8px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    width: auto;
+    height: auto;
+    margin-left: 100px;
+    margin-right: 100px;
+    border-color: black;
+    border-style: groove;
+
+    
+
+}
+.r{
+    background-image: url(https://img.olhardigital.com.br/wp-content/uploads/2022/05/besouro-azul-1024x512.jpg);
+    background-size:100%;
+    width: auto;
+    height: 400px;
+}
+.r2{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+
+}
+
+
+
+
+h1{
+    padding: 10px;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    font-size: 19px;
+
+}
+.cent{
+    
+    align-items: center;
+    align-content:center ;
+    text-align: center;
+    border-style: solid;
+    border-right: 2px;
+    border-left: 2px;
+    border-bottom: 2px;
+    border-color: black;
+
+
+
+}
+.pd{
+
+    padding: 10px;
+}

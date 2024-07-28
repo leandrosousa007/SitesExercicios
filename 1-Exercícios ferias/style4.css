@@ -1,0 +1,45 @@
+img {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 650px;
+    height: 1000px;
+    float: left;
+   
+}
+body {
+    background-image: linear-gradient(rgb(0, 100, 0), rgb(255, 251, 0),rgb(255, 0, 0));
+
+
+}
+h1{   
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+h2{   
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+p {   
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+.m3 {   
+    margin-top: 0;
+    margin-left: 670px;
+    
+    
+
+ 
+    
+
+}
+.m4 {   
+    color: black;
+    font-family: cambria;
+
+ 
+    
+
+}
+

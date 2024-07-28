@@ -1,0 +1,145 @@
+<!DOCTYPE html>        
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Ex1</title>
+    
+    <style>
+        body{width: 100vw;background-color: white;font-family: 'Roboto',sans-serif;}
+       
+       .u{background-color: black;
+            color: white;
+            margin-top: -8.5px;
+            width: 100%;
+            height: 30px;
+            text-align: center;
+           margin-left: -8px;
+            padding-top: 8px;
+        } 
+        
+        
+        
+      
+    .painel {
+     
+      width: 90%;
+      border: 1px solid #000000;
+      text-align: center;
+      padding: 20px;
+      
+    }
+
+    .painel-cab {
+      font-weight: bold;
+      
+    }
+
+    .b {
+     
+      font-size: 20px;
+      display: inline-block;
+      padding: 5px 10px;
+      color: rgb(0,0,0);
+      animation: none;
+      border: none;
+      background-color: white;
+      cursor: pointer;
+    }
+
+    .table {
+      padding: 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .table th,
+    .table td {
+    
+      padding: 8px;
+    }
+    
+    .tab{
+        width: 100%;
+        text-align: justify;
+        border: 1px solid #000000;
+        padding: 8px;
+        background-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+
+    }
+
+    .oi{
+        margin-top: 30px;
+
+
+    }
+
+    .t{
+       
+        border:  1px solid black;
+       
+
+
+        }
+  </style>
+    
+    <script>
+    function req() {
+      
+      var fet = document.getElementById('fet');
+      var nvl = document.getElementById('nvl');
+      var ta = document.getElementById('ta');
+
+      var feiticoValor = fet.value;
+      var nivelValor = nvl.value;
+
+      if (feiticoValor !== '' && nivelValor !== '') {
+        var add = ta.insertRow();
+        var col = add.insertCell();
+        var col1 = add.insertCell();
+
+        col.innerHTML = feiticoValor;
+        col1.innerHTML = nivelValor;
+
+        fet.value = '';
+        nvl.value = '';
+      }
+    }
+        
+</script>
+</head><body>
+   
+    
+    
+    <div class="u">Site desenvolvido por Leandro Sousa e Ana Luiza.</div>
+
+
+    <div class ='oi'>
+    <div id="formulario" class="painel">
+    <div class="painel-cab">
+       
+        <table class="tab" id="tab">
+        
+          <tr>
+            <th >Meus feitiços</th>
+        </tr>
+          </table>
+              </div>
+
+    <div class="painel-bd">
+      
+        Feitiços: <input type="text" id="fet">
+        Nível: <input type="text" id="nvl">
+        <button class="b" onclick="req()">+</button>
+    </th>
+    </div>
+      <table class="table t" id="ta">
+          
+        <th>Feitiço</th>
+        <th>Nível</th>
+        
+</table>
+  </div>
+      </div> 
+         </body>
+            </html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Média</title>
+    <script type="text/javascript">
+      function calcularMedia() {
+        // Recebe nome, nota da PR1 e nota da PR2 do aluno
+        let nome = document.getElementById("nome").value;
+        let notaPR1 = parseFloat(document.getElementById("notaPR1").value);
+        let notaPR2 = parseFloat(document.getElementById("notaPR2").value);
+
+        // Calcula a média das notas
+        let media = (notaPR1 + notaPR2) / 2;
+
+        // Verifica se o aluno foi aprovado, reprovado ou está em prova final
+        let mensagem;
+        if (media >= 7) {
+          mensagem = "Aprovado!";
+        } else if (media < 3) {
+          mensagem = "Reprovado!";
+        } else {
+          mensagem = "Em prova final.";
+        }
+
+        // Exibe o resultado na página
+        document.getElementById("resultado").innerHTML = 
+          "Nome: " + nome + "<br>" +
+          "Nota da PR1: " + notaPR1 + "<br>" +
+          "Nota da PR2: " + notaPR2 + "<br>" +
+          "Média: " + media.toFixed(2) + "<br>" +
+          "Resultado: " + mensagem;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Calculadora de Média</h1>
+    <p>Entre com o nome, a nota da PR1 e a nota da PR2 do aluno:</p>
+    <form>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome"><br>
+      <label for="notaPR1">Nota da PR1:</label>
+      <input type="number" id="notaPR1" name="notaPR1" step="0.01"><br>
+      <label for="notaPR2">Nota da PR2:</label>
+      <input type="number" id="notaPR2" name="notaPR2" step="0.01"><br>
+      <button type="button" onclick="calcularMedia()">Calcular Média</button>
+    </form>
+    <div id="resultado"></div>
+  </body>
+</html>

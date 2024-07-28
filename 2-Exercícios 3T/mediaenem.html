@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcule a média ponderada!</title>
+    
+    <style>
+        body {
+            width: 100%;
+            background-color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        button {
+            color: rgb(255, 255, 255);
+            background-color: rgb(0, 0, 0);
+            border-radius: 5px;
+        }
+        
+        img {
+            width: 300px;
+            height: 400px;
+            padding-left: 2%;
+            padding-bottom: 2%;
+        }
+
+        .u {
+            background-color: black;
+            color: white;
+            margin-top: -8.5px;
+            width: 100%;
+            height: 30px;
+            text-align: center;
+            margin-left: -8px;
+            padding-top: 8px;
+        }
+
+        .o {
+            margin-top: 10px;
+            text-align: center;
+        }
+  
+        .i {
+            display: flex;
+        }
+    </style>
+    
+    <script>
+        function req() {
+            var a1 = parseFloat(document.getElementById("v1").value);
+            var a2 = parseFloat(document.getElementById("v2").value);
+            var a3 = parseFloat(document.getElementById("v3").value);
+            var a4 = parseFloat(document.getElementById("v4").value);
+            var a5 = parseFloat(document.getElementById("v5").value);
+            
+            var curso = document.getElementById("va").value;
+            
+            var mp = 0;
+            var mpn = 0;
+            var ms = 0;
+            ms = (a1+a2+a3+a4+a5)/5;
+            
+            if (curso === "CC" || curso === "ENGC" || curso === "SI" || curso === "GES") {
+                mp = (a1 + a2 + (a3 * 2) + (a4 * 2) + (a5 * 2)) / 8;
+            
+                document.getElementById('r1').innerHTML = "Média Simples: " + ms.toFixed(1);
+                document.getElementById('r').innerHTML = "Média Ponderada: " + mp.toFixed(1);
+            }
+            
+           else if (curso === "BIO" || curso === "ODO") {
+                mpn = (a1 + a2 + (a3 * 2) + a4+a5) / 6;
+                
+                document.getElementById('r1').innerHTML = "Média Simples: " + ms.toFixed(1);
+                document.getElementById('r').innerHTML = "Média Ponderada: " + mpn.toFixed(1);
+            
+            
+            }
+            
+            else if (curso === "RI" || curso === "m") {
+    
+                document.getElementById('r1').innerHTML = "Média Simples: " + ms.toFixed(1);
+            
+            
+            }
+    
+
+        
+        };
+    </script>
+</head>
+
+<body>
+    <div class="u">Site desenvolvido por Leandro Sousa</div>
+    <div class="o">
+        <img src="https://m.media-amazon.com/images/I/816Etq5qEwL._AC_UF894,1000_QL80_.jpg"><br>
+        <label for="va">Informe o seu curso:</label>
+        <select name="curso" id="va">
+            <option value="m">Média</option>
+            <option value="BIO">Biomedicina</option>
+            <option value="CC">Ciências da computação</option>
+            <option value="ENGC">Engenharia de Computação</option>
+            <option value="GES">Gestão da Informação</option>
+            <option value="ODO">Odonto</option>
+            <option value="RI">Relações Internacionais</option>
+            <option value="SI">Sistemas de Informação</option>
+        </select>
+    
+        <label class="i" for="v1">Nota de Linguagens:
+            <input type="number" id="v1">
+        </label>
+    
+        <label class="i" for="v2">Nota de Linguagens:
+            <input type="number" id="v2">
+        </label>
+    
+        <label class="i" for="v3">Nota de Natureza:
+            <input type="number" id="v3">
+        </label>
+    
+        <label class="i" for="v4">Nota de Matemática:
+            <input type="number" id="v4">
+        </label>
+    
+        <label class="i" for="v5">Nota da Redação:
+            <input type="number" id="v5">
+        </label>
+    
+        <button type="button" onclick="req()">Calcular</button>
+        <p id="r"></p>
+        <p id="r1"></p>
+        <p id="r2"></p>
+    </div>
+</body>
+</html>

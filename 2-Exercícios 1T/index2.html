@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#regioes,
+#consultarBtn {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+#consultarBtn {
+    background-color: rgb(111, 228, 120);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#consultarBtn:hover {
+    background-color: rgb(10, 199, 26);
+}
+
+#estados-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#estados-table th,
+#estados-table td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+}
+
+#estados-table th {
+    background-color: #f2f2f2;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <label for="regioes">Escolha uma região:</label>
+        <select id="regioes">
+            <option value="1">Norte</option>
+            <option value="2">Nordeste</option>
+            <option value="3">Sudeste</option>
+            <option value="4">Sul</option>
+            <option value="5">Centro-Oeste</option>
+        </select>
+        <button id="consultarBtn">Consultar</button>
+
+        <h2></h2>
+        <table id="estados-table">
+            <thead>
+                <tr>
+                    <th>Estado</th>
+                    <th>Sigla</th>
+                </tr>
+            </thead>
+            <tbody id="estados-tbody"></tbody>
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var regioesSelect = document.getElementById('regioes');
+            var consultarBtn = document.getElementById('consultarBtn');
+            var estadosTbody = document.getElementById('estados-tbody');
+
+            consultarBtn.addEventListener('click', function() {
+                var regiaoId = regioesSelect.value;
+                estadosTbody.innerHTML = '';
+
+                if (regiaoId) {
+                    fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/regioes/${regiaoId}/estados`)
+                        .then(function(response) {
+                            return response.json();
+                        })
+                        .then(function(estados) {
+                            estados.forEach(function(estado) {
+                                var row = estadosTbody.insertRow();
+                                var cellEstado = row.insertCell(0);
+                                var cellSigla = row.insertCell(1);
+
+                                cellEstado.textContent = estado.nome;
+                                cellSigla.textContent = estado.sigla;
+                            });
+                        })
+                        .catch(function(error) {
+                            console.error('Erro ao carregar os estados:', error);
+                        });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>        
+<html lang="pt-BR">
+<head> 
+    <meta charset="UTF-8">
+    <title>Ex2</title>
+
+    <style>
+        body{width: 100vw;background-color: white;font-family: 'Roboto',sans-serif;}
+        button{color: rgb(255, 255, 255);background-color: rgb(0, 0, 0);border-radius: 5px;}
+        
+        .u{background-color: black;
+            color: white;
+            margin-top: -8.5px;
+            width: 100%;
+            height: 30px;
+            text-align: center;
+           margin-left: -8px;
+            padding-top: 8px;
+        }
+        
+        .o{ margin-top: 10px;
+            text-align:justify;
+          
+            float: left;
+        }
+
+
+        
+        .i{
+            display: flex;
+            
+
+        }
+       
+        .i1{margin-top: 10px;
+            text-align:justify;
+            display: flex;
+            margin-right: 500px;
+    
+            padding-left: 100px;
+            line-height: 1.3;
+        }
+        .t{
+             border:  1px solid black;
+
+
+
+        }
+
+
+
+ </style>
+
+</html><body>
+    
+    <div class="u">Site desenvolvido Leandro Sousa e Ana Luiza.</div>
+
+   
+        <div class="o">
+        <label for="v1"><input  type="text" id="v1"></label>  <button  id="req">>></button>
+        <input class="i" type="text" id="v2">
+        <input class="i" type="text" id="v3">
+        <input class="i" type="text" id="v4">
+        <input class="i" type="text" id="v5">
+        <input class="i" type="text" id="v6">
+        <input class="i" type="text" id="v7">
+        <input class="i" type="text" id="v8">
+        <input class="i" type="text" id="v9">
+        <input class="i" type="text" id="v10">
+            
+</div>
+     <p id="r" class="i1"></p>
+    
+<script>
+        document.getElementById("req").addEventListener("click",ord)
+        
+        function ord() {
+            var a = [];
+            for (let i = 1; i <= 10; i++) {
+                a.push(i + ". " + document.getElementById('v' + i).value);
+                document.getElementById('v' + i).value = "";
+            }
+            var b = a.join("<br>");
+            document.getElementById("r").innerHTML = b;
+}
+
+</script>
+</body></html>

@@ -1,0 +1,48 @@
+<html>
+  <head lang="pt-BR">
+    <meta charset="UTF-8">
+    <title>EX4</title>
+<style>
+ body{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ }
+.o{
+    background-color: rgb(0, 0, 0);
+    color :white;
+    border-radius: 5px;
+}
+div{
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    align-content: center;
+    margin-right:30% ;
+    margin-left: 30%;
+    border-radius: 20px;
+
+}
+.e{
+    border-radius: 5px;
+}
+
+</style>  
+
+
+</head>
+  <body bgcolor="00FF00" >
+    <div>
+    <center><h1>Sequência de Fibonacci</h1>
+    <label for="n">Digite um valor para N:</label>
+    <input class="e" type="number" id="n">
+    <button  class="o"onclick="gerarSequencia()">Clique aqui!</button><center>
+    <p id="sequencia"></p></div>
+    <script>
+      function gerarSequencia() {
+        let n = document.getElementById("n").value;
+        let fibonacci = [1, 1];
+        for (let i = 2; i < n; i++) {
+          fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+        }
+        document.getElementById("sequencia").innerHTML = ` ${fibonacci}`;
+      }
+    </script>
+  </body>
+</html>

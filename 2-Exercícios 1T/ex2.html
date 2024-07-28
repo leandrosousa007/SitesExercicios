@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX2</title>
+    <style>
+        body{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+       .o{
+           background-color: rgb(0, 0, 0);
+           color :white;
+           border-radius: 5px;
+       }
+       div{
+           background-color: rgb(255, 255, 255);
+           align-items: center;
+           align-content: center;
+           margin-right:30% ;
+           margin-left: 30%;
+           border-radius: 20px;
+       
+       }
+       .texto{
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        background-image: linear-gradient(blue,black);
+}
+
+       
+       </style>
+    <script>
+
+            function teste(){
+                var nome = document.getElementById("te").value;
+                var grande = nome.toUpperCase();
+                alert(grande);
+            }
+
+    </script>
+</head>
+<body bgcolor="00FF00">
+    <center>
+    <div><input class="texto" type="text" id="te" placeholder="Digite seu nome">
+    <input type="button" class="o" value="Clique Aqui!" onclick="teste()" class="but"></div>
+    <center>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>        
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Ex3</title>
+    
+    <style>body{background-color: white;font-family: 'Roboto',sans-serif;}
+        button{color: rgb(255, 255, 255);background-color: rgb(0, 0, 0);}</style>
+    
+    <script>
+        function req(){
+            var a = document.getElementById("va").value;
+            var b = document.getElementById("vb").value;
+
+            var calqwcem = (a*0.142)/100;
+            return calqwcem.toFixed(2);
+            
+        };
+        
+        function req2(){
+            var a = document.getElementById("va").value;
+            var b = document.getElementById("vb").value;
+            var c = (a*0.142)/100;
+            
+
+            var calqwcem2 = b*c.toFixed(2);
+            return calqwcem2.toFixed(2);
+            
+        };
+        function req3(){
+            var a = document.getElementById("va").value;
+            var b = document.getElementById("vb").value;
+            var c = (a*0.142)/100;
+            
+
+            var calqwcem3 = (b*c.toFixed(2))*0.9;
+            return calqwcem3.toFixed(2);
+            
+        };
+
+        function imp(){
+            document.getElementById('r').innerHTML = "Valor de cada quilowatt = R$ " + req();
+            document.getElementById('r1').innerHTML = "Valor total = R$ " + req2();
+            document.getElementById('r2').innerHTML = "Valor total com desconto de 10% = R$ " + req3();
+
+        };
+
+</script>
+
+</head><body>
+    
+    
+    <label for="va">Salário mínimo:</label>
+    <input type="number" id="va">
+    <label for="vb">Quantidade de Kw:</label>
+    <input type="number" id="vb">
+    
+    <button type="button" onclick="imp()">Calcular</button>
+    <p id="r"></p>
+    <p id="r1"></p>
+    <p id="r2"></p>
+
+</body></html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>        
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Ex4</title>
+
+    <style>body{background-color: white;font-family: 'Roboto',sans-serif;}
+    button{color: rgb(255, 255, 255);background-color: rgb(0, 0, 0);}</style>
+
+    <script>
+        function req(){
+            var a = document.getElementById("va").value;
+            var b = document.getElementById("vb").value;
+
+            var t = a*0.3;
+            if(b <= t) document.getElementById('r').innerHTML = "O emprestimo pode ser concedido!";
+            else document.getElementById('r').innerHTML = "O emprestimo pode não ser concedido!";
+            
+        };
+
+</script>
+
+</head><body>
+    
+    <label for="va">Salário bruto:</label>
+    <input type="number" id="va">
+    <label for="vb">Valor da prestação:</label>
+    <input type="number" id="vb">
+    <button type="button" onclick="req()">Verificar</button>
+    <p id="r"></p>
+   
+
+</body></html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#estados, #consultarBtn {
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 8px 20px;
+    margin-right: 10px;
+}
+
+#consultarBtn {
+    background-color: rgb(111, 228, 120);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#consultarBtn:hover {
+    background-color: rgb(10, 199, 26);
+}
+
+.cidades-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.cidades-table th, .cidades-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.cidades-table th {
+    background-color: #f2f2f2;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="estados">Escolha um estado:</label>
+        <select id="estados">
+            <!-- As opções do menu suspenso serão preenchidas dinamicamente pelo JavaScript -->
+        </select>
+        <button id="consultarBtn">Consultar</button>
+
+        <div id="cidades-container"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    var estadosSelect = document.getElementById('estados');
+    var consultarBtn = document.getElementById('consultarBtn');
+    var cidadesContainer = document.getElementById('cidades-container');
+
+    // Preenche o menu suspenso de estados dinamicamente
+    fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(estados) {
+            estados.forEach(function(estado) {
+                var option = document.createElement('option');
+                option.value = estado.id;
+                option.textContent = estado.nome;
+                estadosSelect.appendChild(option);
+            });
+        })
+        .catch(function(error) {
+            console.error('Erro ao carregar os estados:', error);
+        });
+
+    consultarBtn.addEventListener('click', function() {
+        var estadoId = estadosSelect.value;
+        cidadesContainer.innerHTML = '';
+
+        if (estadoId) {
+            fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estadoId}/municipios`)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(cidades) {
+                    // Ordena as cidades em ordem alfabética
+                    cidades.sort(function(a, b) {
+                        return a.nome.localeCompare(b.nome);
+                    });
+
+                    var tabela = document.createElement('table');
+                    tabela.classList.add('cidades-table');
+
+                    cidades.forEach(function(cidade) {
+                        var linha = tabela.insertRow();
+                        var cellNome = linha.insertCell(0);
+                        cellNome.textContent = cidade.nome;
+                    });
+
+                    cidadesContainer.appendChild(tabela);
+                })
+                .catch(function(error) {
+                    console.error('Erro ao carregar as cidades:', error);
+                });
+        }
+    });
+});
+
+
+    </script>
+</body>
+</html>

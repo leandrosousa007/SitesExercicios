@@ -1,0 +1,33 @@
+.m1 {
+    align-items: center;
+    width:600px;
+    height: 530px;
+    background: #000000;
+    opacity:0.5;
+    display: inline-flex;
+    margin-top: 130px;
+    margin-left: 130px;
+}
+.m2 {
+    background-image: url(https://atomicpapers.com.br/web/wallpapers/estrada-nuvens-montanhas/1920x1080.jpg);
+    
+}
+
+.m3 {
+    color: rgb(255, 255, 255);
+    font-family: cambria;
+    border: 10px;
+    line-height: 2.0;
+    align-items: center;
+    text-align: center;
+}
+.m4 {
+    color: rgb(255, 255, 255);
+    font-family: cambria;
+    border: 10px;
+    line-height: 2.0;
+    align-items: center;
+    text-align: center;
+    font-size: 25;
+}
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>        
+<html lang="pt-BR">
+<head>
+    <link type="text/css" rel="stylesheet" href="stu.css"/>
+    <meta charset="UTF-8">
+    <title>Ex6</title>
+    
+    <style>body{background-color: white;font-family: 'Roboto',sans-serif;}
+    button{color: rgb(255, 255, 255);background-color: rgb(0, 0, 0);}</style>
+    
+    <script>
+        function req(){
+        
+            const velocidade =document.getElementById("va");
+            const tempo = document.getElementById("vb");
+            
+            let velocidade1 = parseFloat(velocidade.value);
+            let tempo1 = parseFloat(tempo.value);
+            let distancia = 0;
+            let litros = 0;
+            let t = 0;
+            let sum = 0
+
+            const outputDiv = document.getElementById("r");
+            outputDiv.innerHTML = "";
+                
+            
+            
+                while(velocidade1 >= 0){
+                distancia = tempo1 * velocidade1;
+                
+                litros = distancia /10;
+                t = t + litros;
+                sum = t;
+
+                const os = `<p>Distância percorrida:  ${ distancia.toFixed(2)}  Km </p>  <p>Quantidade de litros gastos: ${litros.toFixed(2)} L </p>`;
+                
+                    outputDiv.innerHTML += os;
+                
+                    velocidade.value = "";
+                    tempo.value = "";
+                    velocidade1 = parseFloat(velocidade.value);
+                    tempo1 = parseFloat(tempo.value);                
+    }
+           
+                const ts  = `<h2>Total de litros gastos na viagem: ${sum.toFixed(2)} L </h2>`;
+                outputDiv.innerHTML += ts;
+};
+
+</script>
+
+</head><body>
+
+
+    <label for="va">Velocidade:</label>
+    <input type="number" id="va">
+    <label for="vb">Tempo:</label>
+    <input type="number" id="vb">
+    <button onclick="req()">Calcular</button>
+
+    <div id="r"></div>
+   
+   
+
+</body></html>

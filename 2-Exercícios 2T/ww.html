@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculadora de consumo de combustível</title>
+  </head>
+  <body>
+    <h1>Calculadora de consumo de combustível</h1>
+    <p>Insira a velocidade e o tempo de viagem para cada trecho da viagem.</p>
+
+    <div>
+      <label for="velocidade">Velocidade:</label>
+      <input type="number" id="velocidade">
+      <label for="tempo">Tempo:</label>
+      <input type="number" id="tempo">
+      <button onclick="calcular()">Calcular</button>
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+      function calcular() {
+        const velocidadeInput = document.getElementById("velocidade");
+        const tempoInput = document.getElementById("tempo");
+
+        let velocidade = parseFloat(velocidadeInput.value);
+        let tempo = parseFloat(tempoInput.value);
+        let distancia = 0;
+        let litros = 0;
+        let totalLitros = 0;
+
+        const outputDiv = document.getElementById("output");
+        outputDiv.innerHTML = "";
+
+        while (velocidade >= 0) {
+          distancia = tempo * velocidade;
+          litros = distancia / 10;
+          totalLitros += litros;
+
+          const outputString = `<p>Distância percorrida: ${distancia.toFixed(
+            2
+          )} km</p>
+                                <p>Litros de combustível gastos: ${litros.toFixed(
+                                  2
+                                )} L</p>`;
+          outputDiv.innerHTML += outputString;
+
+          velocidadeInput.value = "";
+          tempoInput.value = "";
+          velocidade = parseFloat(velocidadeInput.value);
+          tempo = parseFloat(tempoInput.value);
+        }
+
+        const totalString = `<h2>Total de litros gastos na viagem: ${totalLitros.toFixed(
+          2
+        )} L</h2>`;
+        outputDiv.innerHTML += totalString;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>        
+<html lang="pt-BR">
+<head> 
+    <meta charset="UTF-8">
+    <title>Ex3</title>
+
+    <style>
+        body{width: 100vw;background-color: white;font-family: 'Roboto',sans-serif;}
+        button{color: rgb(255, 255, 255);background-color: rgb(0, 0, 0);border-radius: 5px;}
+        
+        .u{background-color: black;
+            color: white;
+            margin-top: -8.5px;
+            width: 100%;
+            height: 30px;
+            text-align: center;
+           margin-left: -8px;
+            padding-top: 8px;
+        }
+        
+        .o{ margin-top: 10px;
+            text-align:justify;
+          
+            float: left;
+        }
+
+
+        
+        .i{
+            display: flex;
+            
+
+        }
+       
+        .i1{margin-top: 10px;
+            text-align:justify;
+            display: flex;
+            margin-right: 500px;
+    
+            padding-left: 100px;
+            line-height: 1.3;
+        }
+
+
+
+ </style>
+
+</html><body>
+    
+    <div class="u">Site desenvolvido Leandro Sousa e Ana Luiza.</div>
+
+   
+        <div class="o">
+        <label for="v1"><input  type="text" id="v1"></label>  <button  onclick="reqord()">Ordernar</button>
+        <input class="i" type="text" id="v2">
+        <input class="i" type="text" id="v3">
+        <input class="i" type="text" id="v4">
+        <input class="i" type="text" id="v5">
+        <input class="i" type="text" id="v6">
+        <input class="i" type="text" id="v7">
+        <input class="i" type="text" id="v8">
+        <input class="i" type="text" id="v9">
+        <input class="i" type="text" id="v10">
+            
+</div>
+     <p id="r" class="i1"></p>
+    
+<script>
+
+    function reqord() {
+    
+    var v1 = document.getElementById("v1").value;
+    var v2 = document.getElementById("v2").value;
+    var v3 = document.getElementById("v3").value;
+    var v4 = document.getElementById("v4").value;
+    var v5 = document.getElementById("v5").value;
+    var v6 = document.getElementById("v6").value;
+    var v7 = document.getElementById("v7").value;
+    var v8 = document.getElementById("v8").value;
+    var v9 = document.getElementById("v9").value;
+    var v10 = document.getElementById("v10").value;
+
+    var v = [v1, v2, v3, v4, v5, v6, v7, v8, v9, v10];
+
+
+    for (var i = 0; i < v.length - 1; i++) {
+        for (var j = i + 1; j < v.length; j++) {
+            if (v[i] > v[j]) {
+            
+            var aux = v[i];
+            v[i] = v[j];
+            v[j] = aux;
+    } } }
+
+    var a = '';
+    
+    for(var i = 0; i < v.length; i++){
+
+        a += i+1 + ". " + v[i] + "<br>";
+        
+    }
+
+    for (let i = 1; i <= 10; i++) {
+                document.getElementById('v' + i).value = "";
+            }
+
+
+    document.getElementById('r').innerHTML = a;
+    
+    
+
+        }
+
+
+</script>
+</body></html>
